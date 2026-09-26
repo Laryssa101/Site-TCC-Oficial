@@ -1,0 +1,1413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fdafaf;
+    color: #70445a;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CORES PASTEL
+========================================= */
+
+:root {
+
+    --rosa-claro: #ffe1ed;
+    --rosa: #f6a9c8;
+    --rosa-forte: #e98aae;
+
+    --rosa-escuro: #f0508b;
+
+    --creme: #fff8f2;
+
+    --marrom: #70445a;
+
+    --verde: #c8dfd1;
+
+    --amarelo: #ffe8ad;
+
+    --lilas: #dcd0ee;
+
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: #f7abc9;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    transition: opacity 1s ease;
+
+}
+
+.intro-conteudo {
+
+    text-align: center;
+
+    z-index: 3;
+
+}
+
+.texto-intro {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 12px;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+}
+
+#botao-entrar {
+
+    width: 130px;
+
+    height: 130px;
+
+    border: 6px solid var(--marrom);
+
+    background: #ffe1ed;
+
+    color: #e98aae;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 65px;
+
+    cursor: pointer;
+
+    box-shadow: 10px 10px 0 var(--marrom);
+
+    transition: .2s;
+
+}
+
+#botao-entrar:hover {
+
+    transform: scale(1.08) rotate(-3deg);
+
+}
+
+#botao-entrar:active {
+
+    transform: scale(.95);
+
+}
+
+.clique-intro {
+
+    margin-top: 35px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: white;
+
+    animation: piscar 1.2s infinite;
+
+}
+
+
+/* =========================================
+   CHOCOLATE
+========================================= */
+
+#chocolate {
+
+    position: absolute;
+
+    width: 160%;
+
+    height: 0;
+
+    left: -30%;
+
+    bottom: 0;
+
+    background: #c9859e;
+
+    z-index: 5;
+
+    transition:
+        height 2s cubic-bezier(.7,0,.3,1);
+
+}
+
+#chocolate::before,
+#chocolate::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: #c9859e;
+
+    border-radius: 50%;
+
+}
+
+#chocolate::before {
+
+    width: 180px;
+
+    height: 100px;
+
+    top: -40px;
+
+    left: 20%;
+
+}
+
+#chocolate::after {
+
+    width: 250px;
+
+    height: 120px;
+
+    top: -50px;
+
+    right: 15%;
+
+}
+
+.derretendo #chocolate {
+
+    height: 120%;
+
+}
+
+.derretendo .intro-conteudo {
+
+    opacity: 0;
+
+    transform: scale(.7);
+
+    transition: 1s;
+
+}
+
+.intro-saindo {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   SITE
+========================================= */
+
+#site {
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+
+}
+
+#site.apareceu {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 18px 6%;
+
+    background: rgba(255,248,252,.96);
+
+    border-bottom: 4px solid var(--marrom);
+
+    box-shadow: 0 5px 0 rgba(112,68,90,.12);
+
+}
+
+.logo {
+
+    font-family: "Press Start 2P", cursive;
+
+    color: #ff7d7d;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+}
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+nav a {
+
+    text-decoration: none;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: var(--marrom);
+
+    transition: .2s;
+
+}
+
+nav a:hover {
+
+    color: #f4a9c5;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 85vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 70px 10%;
+
+    background-image: url("imagem/menuzinho.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+.hero-texto {
+
+    max-width: 550px;
+
+}
+
+.mini-titulo {
+
+    font-family: "Press Start 2P", cursive;
+
+    color: #b84e75;
+
+    font-size: 10px;
+
+}
+
+.hero h1 {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(40px,7vw,85px);
+
+    line-height: 1.15;
+
+    color: #fc6a9f;
+
+    text-shadow: 5px 5px 0 white;
+
+}
+
+.hero p {
+
+    font-size: 20px;
+
+    margin: 25px 0;
+
+    color: #50152b;
+
+    line-height: 1.6;
+
+}
+
+.botao-pixel {
+
+    display: inline-block;
+
+    background: #eca5c2;
+
+    color: white;
+
+    padding: 18px 25px;
+
+    border: 4px solid var(--marrom);
+
+    box-shadow: 7px 7px 0 var(--marrom);
+
+    text-decoration: none;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+    transition: .2s;
+
+}
+
+.botao-pixel:hover {
+
+    transform: translate(4px,4px);
+
+    box-shadow: 3px 3px 0 var(--marrom);
+
+}
+
+.hero-imagem {
+
+    width: 40%;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.hero-imagem img {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    image-rendering: pixelated;
+
+    animation: flutuar 3s ease-in-out infinite;
+
+}
+
+
+/* =========================================
+   SEÇÕES
+========================================= */
+
+.secao {
+
+    padding: 100px 8%;
+
+}
+
+.titulo-secao {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+.titulo-secao span {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: #f97187;
+
+}
+
+.titulo-secao h2 {
+
+    margin: 20px 0;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(25px,4vw,45px);
+
+    color: var(--marrom);
+
+}
+
+.titulo-secao p {
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.produtos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap: 35px;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+.card-doce {
+
+    background: var(--creme);
+
+    border: 4px solid var(--marrom);
+
+    box-shadow: 8px 8px 0 #e7b4c8;
+
+    transition: .25s;
+
+    overflow: hidden;
+
+}
+
+.card-doce:hover {
+
+    transform: translateY(-10px) rotate(-1deg);
+
+    box-shadow: 12px 12px 0 #e7b4c8;
+
+}
+
+.imagem-doce {
+
+    height: 230px;
+
+    background: #ffe0ec;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+.imagem-doce img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    image-rendering: pixelated;
+
+}
+
+.card-info {
+
+    padding: 20px;
+
+}
+
+.card-info h3 {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 12px;
+
+    color: #50152b;
+
+    line-height: 1.6;
+
+}
+
+.card-info p {
+
+    margin: 15px 0;
+
+    line-height: 1.5;
+
+}
+
+.card-baixo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+}
+
+.card-baixo strong {
+
+    font-size: 18px;
+
+    color: var(--marrom);
+
+}
+
+.comprar {
+
+    background: #eaa1bd;
+
+    color: white;
+
+    border: 3px solid var(--marrom);
+
+    padding: 10px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 7px;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 var(--marrom);
+
+}
+
+.comprar:hover {
+
+    transform: translate(3px,3px);
+
+    box-shadow: 1px 1px 0 var(--marrom);
+
+}
+
+
+/* =========================================
+   RECEITAS
+========================================= */
+
+.receitas {
+
+    background: #fff8fc;
+
+}
+
+.receita-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap: 40px;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+.receita-card {
+
+    background: #fffdfb;
+
+    border: 4px solid var(--marrom);
+
+    box-shadow: 8px 8px 0 #dcc9d2;
+
+    padding: 30px;
+
+}
+
+.receita-topo {
+
+    text-align: center;
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+}
+
+.receita-card h3 {
+
+    font-family: "Press Start 2P", cursive;
+
+    color: #bd6b89;
+
+    font-size: 13px;
+
+    margin-bottom: 30px;
+
+    line-height: 1.6;
+
+}
+
+.receita-card h4 {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: var(--marrom);
+
+    margin: 25px 0 12px;
+
+}
+
+.receita-card ul,
+.receita-card ol {
+
+    padding-left: 20px;
+
+    line-height: 2;
+
+}
+
+
+/* =========================================
+   SOBRE
+========================================= */
+
+.sobre {
+
+    padding: 100px 10%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    background: #eeb5c9;
+
+    color: white;
+
+}
+
+.sobre > div:first-child {
+
+    max-width: 700px;
+
+}
+
+.sobre span {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+}
+
+.sobre h2 {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(25px,5vw,45px);
+
+    margin: 25px 0;
+
+    line-height: 1.5;
+
+}
+
+.sobre p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+}
+
+.mascote {
+
+    font-size: 120px;
+
+    cursor: pointer;
+
+    animation: flutuar 3s infinite;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background: #876074;
+
+    color: white;
+
+}
+
+footer p {
+
+    font-family: "Press Start 2P", cursive;
+
+    margin-bottom: 15px;
+
+    cursor: pointer;
+
+}
+
+footer span {
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   CARRINHO
+========================================= */
+
+#carrinho-botao {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 65px;
+
+    height: 65px;
+
+    border: 4px solid var(--marrom);
+
+    background: #f8bfd4;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 500;
+
+    box-shadow: 6px 6px 0 var(--marrom);
+
+}
+
+#contador {
+
+    position: absolute;
+
+    top: -10px;
+
+    right: -10px;
+
+    background: var(--marrom);
+
+    color: white;
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+}
+
+#carrinho {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(112,68,90,.55);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+}
+
+#carrinho.aberto {
+
+    display: flex;
+
+}
+
+.carrinho-conteudo {
+
+    position: relative;
+
+    width: min(90%,500px);
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    background: #fff7fb;
+
+    border: 5px solid var(--marrom);
+
+    box-shadow: 10px 10px 0 #e9afc5;
+
+    padding: 35px;
+
+}
+
+.carrinho-conteudo h2 {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+
+    color: #b96b87;
+
+    line-height: 1.6;
+
+}
+
+#fechar-carrinho {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 10px;
+
+    border: 3px solid var(--marrom);
+
+    background: #ffd7e5;
+
+    width: 35px;
+
+    height: 35px;
+
+    cursor: pointer;
+
+}
+
+.item-carrinho {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 2px dashed #ddb5c5;
+
+}
+
+.total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 25px 0;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+}
+
+.botao-finalizar {
+
+    width: 100%;
+
+    padding: 15px;
+
+    background: #eaa1bd;
+
+    color: white;
+
+    border: 3px solid var(--marrom);
+
+    box-shadow: 5px 5px 0 var(--marrom);
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   PLAYER DE MÚSICA
+========================================= */
+
+#player-musica {
+
+    position: fixed;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 700;
+
+    width: 330px;
+
+    min-height: 80px;
+
+    padding: 12px;
+
+    background: #fff7fb;
+
+    border: 4px solid var(--marrom);
+
+    box-shadow: 6px 6px 0 var(--marrom);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.player-cd {
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    background: #f5b5ce;
+
+    border: 3px solid var(--marrom);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 15px;
+
+}
+
+.player-cd.tocando {
+
+    animation: girar 3s linear infinite;
+
+}
+
+.player-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 7px;
+
+}
+
+.player-titulo {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 6px;
+
+    color: #c77b98;
+
+}
+
+.player-nome {
+
+    font-size: 12px;
+
+    color: var(--marrom);
+
+}
+
+#play-musica {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 3px solid var(--marrom);
+
+    background: #f7c3d7;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+}
+
+.volume-area {
+
+    position: absolute;
+
+    left: 73px;
+
+    bottom: 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+.volume-area span {
+
+    font-size: 10px;
+
+}
+
+#volume {
+
+    width: 70px;
+
+    accent-color: #d889a6;
+
+}
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+#popup-segredo {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(112,68,90,.6);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 3000;
+
+}
+
+#popup-segredo.aberto {
+
+    display: flex;
+
+}
+
+.popup-caixa {
+
+    width: min(90%,400px);
+
+    padding: 35px;
+
+    background: #fff7fb;
+
+    border: 5px solid var(--marrom);
+
+    box-shadow: 10px 10px 0 #e8abc2;
+
+    text-align: center;
+
+    animation: popup .3s ease;
+
+}
+
+#popup-emoji {
+
+    font-size: 60px;
+
+    margin-bottom: 15px;
+
+}
+
+.popup-caixa h2 {
+
+    font-family: "Press Start 2P", cursive;
+
+    color: #bd6b89;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+.popup-caixa p {
+
+    margin: 20px 0;
+
+    line-height: 1.6;
+
+}
+
+#fechar-popup {
+
+    padding: 12px 20px;
+
+    border: 3px solid var(--marrom);
+
+    background: #f5b5ce;
+
+    color: white;
+
+    box-shadow: 4px 4px 0 var(--marrom);
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes flutuar {
+
+    0%,100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+@keyframes piscar {
+
+    0%,100% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: .4;
+
+    }
+
+}
+
+@keyframes girar {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes popup {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width:800px) {
+
+    header {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+    }
+
+    nav {
+
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+
+    }
+
+    .hero-imagem {
+
+        width: 80%;
+
+    }
+
+    .sobre {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    #player-musica {
+
+        left: 10px;
+
+        bottom: 10px;
+
+        width: 280px;
+
+    }
+
+    #carrinho-botao {
+
+        right: 15px;
+
+        bottom: 15px;
+
+    }
+
+}
+
+
+@media (max-width:500px) {
+
+    .hero {
+
+        padding: 60px 20px;
+
+    }
+
+    .secao {
+
+        padding: 70px 20px;
+
+    }
+
+    .card-baixo {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .comprar {
+
+        width: 100%;
+
+    }
+
+}
+
